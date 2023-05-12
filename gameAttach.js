@@ -47,18 +47,21 @@ class Character {
         this.game.container.element.appendChild(this.element);
         this.element.id = `$acharacter${Character.count++}`;
         this.$ = $(this.element);
+        this.$
+            .css('left', this.game.container.width / 2 - this.width / 2)
+            .css('top', this.game.container.height / 2 - this.height / 2);
     }
-    move(coords, speed = -1, bounding = false) {
+    move(coords, speed = -1 /*, bounding = false */) {
         if (speed == -1) {
             console.log(this.x);
             console.log(this.$.css('top'));
             const boundedX = clamp(this.x + coords[0], 0, this.game.container.width - this.width);
-            this.$.css('left', `${bounding ? boundedX : this.x + coords[0]}px`);
+            // this.$.css('left', `${bounding ? boundedX : this.x + coords[0] }px`)
             this.game.background.$.css('left', `${this.game.background.x - coords[0]}px`);
             console.debug(boundedX, this.x + coords[0], this.game.container.width);
             if (coords[1]) {
                 const boundedY = clamp(this.y + coords[1], 0, this.game.container.height - this.height);
-                this.$.css('top', `${Math.max(bounding ? boundedY : this.y + coords[1], 0)}px`);
+                // this.$.css('top', `${bounding ? boundedY : this.y + coords[1]}px`)
                 this.game.background.$.css('top', `${this.game.background.y - coords[1]}px`);
             }
         }

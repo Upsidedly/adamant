@@ -26,8 +26,8 @@ const number = randint(100, 10000);
 for (let i = 0; i < number; i++) {
     const color = getRandomColor();
     game.addObject('entity', 'background').$
-        .css('width', `${randint(20, 300)}px`)
-        .css('height', `${randint(20, 300)}px`)
+        .css('width', `${randint(20, 150)}px`)
+        .css('height', `${randint(20, 150)}px`)
         .css('backgroundColor', color)
         .css('left', randint(-number, number))
         .css('top', randint(-number, number));
@@ -46,16 +46,16 @@ for (let i = 0; i < number; i++) {
 //     .css('top', 500)
 const speed = game.character.width * 2;
 game.onKeys(['KeyW', 'ArrowUp'], (ev) => {
-    game.character.move([0, -(speed)], undefined, true);
+    game.character.move([0, -(speed)], undefined);
 });
 game.onKeys(['KeyS', 'ArrowDown'], (ev) => {
-    game.character.move([0, speed], undefined, true);
+    game.character.move([0, speed], undefined);
 });
 game.onKeys(['KeyA', 'ArrowLeft'], (ev) => {
-    game.character.move([-(speed)], undefined, true);
+    game.character.move([-(speed)], undefined);
 });
 game.onKeys(['KeyD', 'ArrowRight'], (ev) => {
-    game.character.move([speed], undefined, true);
+    game.character.move([speed], undefined);
 });
 game.keyEvents['KeyX'] = (ev) => {
     game.character.tp(game.container.center);
