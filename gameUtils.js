@@ -1,0 +1,6 @@
+export function clamp(n, min, max) {
+    return Math.min(Math.max(n, min), max);
+}
+export function randint(min, max) {
+    return Math.floor(Math.random() * (max - min)) + min; // You can remove the Math.floor if you don't want it to be an integer
+}
