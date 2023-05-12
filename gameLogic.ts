@@ -27,7 +27,6 @@ function getRandomColor() {
 }
 
 const number = randint(100, 10000)
-const bounds = randint(-number, number)
 
 for (let i = 0; i < number; i++) {
     const color = getRandomColor()
@@ -35,8 +34,8 @@ for (let i = 0; i < number; i++) {
         .css('width', `${randint(20, 300)}px`)
         .css('height', `${randint(20, 300)}px`)
         .css('backgroundColor', color)
-        .css('left', bounds)
-        .css('top', bounds)
+        .css('left', randint(-number, number))
+        .css('top', randint(-number, number))
 }
 
 // game.addObject('entity', 'background').$
